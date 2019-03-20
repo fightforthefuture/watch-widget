@@ -94,7 +94,7 @@ function todayIs(y, m, d) {
 function countdownTimer(el) {
   setInterval(function () {
     const datetimeNow = new Date()
-    const datetimeCountdown = new Date('Fri Mar 22 2019 17:00:00 GMT+0000')
+    const datetimeCountdown = new Date('Fri Mar 29 2019 17:00:00 GMT+0000').getTime() // Time is not real
     const delta = datetimeCountdown - datetimeNow
     if (delta > 0) {
       const diff = {
@@ -109,7 +109,7 @@ function countdownTimer(el) {
         String(diff.seconds).padStart(2, '0')
       ]
       if (diff.days !== 0) { formattedTime.unshift(diff.days) }
-      el.textContent =  formattedTime.join(':');
+      el.textContent =  formattedTime.join(':')
     } else {
       el.textContent =  '00:00:00'
     }
@@ -155,8 +155,12 @@ function init() {
     document.body.setAttribute('data-donations', 'false')
   }
 
-  countdownTimer(document.querySelector('#time'));
-  document.querySelector('html').classList.remove('invisible');
+  if (false) {
+    countdownTimer(document.querySelector('#time'))
+  } else {
+    document.querySelector('#time').textContent = 'Next Week'
+  }
+  document.querySelector('html').classList.remove('invisible')
 }
 document.addEventListener('DOMContentLoaded', init)
 
