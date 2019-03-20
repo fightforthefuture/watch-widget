@@ -28,7 +28,7 @@ function initGoogleAnalytics(page) {
   })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
 
   if (typeof ga !== 'undefined') {
-    ga('create', 'UA-26576645-40', 'auto');
+    ga('create', 'UA-123898108-12', 'auto');
 
     if (page) {
       ga('set', 'page', page);
