@@ -91,6 +91,31 @@ function todayIs(y, m, d) {
   return (year === y && month === m && day === d)
 }
 
+function countdownTimer(el) {
+  setInterval(function () {
+    const datetimeNow = new Date()
+    const datetimeCountdown = new Date('Fri Mar 21 2019 17:00:00 GMT+0000')
+    const delta = datetimeCountdown - datetimeNow
+    if (delta > 0) {
+      const diff = {
+        days: Math.floor(delta / (1000 * 60 * 60 * 24)),
+        hours: Math.floor((delta % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)),
+        minutes: Math.floor((delta % (1000 * 60 * 60)) / (1000 * 60)),
+        seconds: Math.floor((delta % (1000 * 60)) / 1000)
+      }
+      const formattedTime = [
+        String(diff.hours).padStart(2, '0'),
+        String(diff.minutes).padStart(2, '0'),
+        String(diff.seconds).padStart(2, '0')
+      ]
+      if (diff.days !== 0) { formattedTime.unshift(diff.days) }
+      el.textContent =  formattedTime.join(':');
+    } else {
+      el.textContent =  '00:00:00'
+    }
+  }, 1000);
+}
+
 function isTruthy(str) {
   return typeof(str) === 'undefined' || `${str}` === 'true' || `${str}` === '1'
 }
@@ -130,8 +155,8 @@ function init() {
     document.body.setAttribute('data-donations', 'false')
   }
 
+  countdownTimer(document.querySelector('#time'));
   document.querySelector('html').classList.remove('invisible');
-  console.log('here index.js')
 }
 document.addEventListener('DOMContentLoaded', init)
 

@@ -161,7 +161,6 @@
     }
 
     document.removeEventListener('DOMContentLoaded', init);
-    console.log('here widget.js')
   }
 
   // Wait for DOM content to load.

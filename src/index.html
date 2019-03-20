@@ -11,9 +11,9 @@
       <h1>{{ title }}</h1>
       <h2>{{ subtitle }}</h2>
       <div class="video">
-        <p>{{ live }}</p>
+        <p class="live">{{ live }}</p>
         <h2 class="heading">{{ body }}</h2>
-        <h2 class="countdown">00:00:00</h2>
+        <h2 class="countdown"><span id="time"><!-- Populated by JS --></span></h2>
       </div>
       <a href="#" class="btn">{{ cta_button }}</a>
       <div>
