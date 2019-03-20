@@ -94,7 +94,7 @@ function todayIs(y, m, d) {
 function countdownTimer(el) {
   setInterval(function () {
     const datetimeNow = new Date()
-    const datetimeCountdown = new Date('Fri Mar 21 2019 17:00:00 GMT+0000')
+    const datetimeCountdown = new Date('Fri Mar 22 2019 17:00:00 GMT+0000')
     const delta = datetimeCountdown - datetimeNow
     if (delta > 0) {
       const diff = {
