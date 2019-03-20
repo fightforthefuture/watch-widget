@@ -158,7 +158,8 @@ function init() {
   if (false) {
     countdownTimer(document.querySelector('#time'))
   } else {
-    document.querySelector('#time').textContent = 'Next Week'
+    const weekText = language === 'es' ? "La próxima semana" : "Next Week"
+    document.querySelector('#time').textContent = weekText
   }
   document.querySelector('html').classList.remove('invisible')
 }
