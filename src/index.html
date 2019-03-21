@@ -11,13 +11,20 @@
       <h1>{{ title }}</h1>
       <h2>{{ subtitle }}</h2>
       <div class="video">
-        <p class="live">{{ live }}</p>
-        <h2 class="heading" id="video-headings">
-          <span id="b1" class="fade is-active">{{ body_1 }}</span>
-          <span id="b2" class="fade">{{ body_2 }}</span>
-          <span id="b3" class="fade">{{ body_3 }}</span>
-        </h2>
-        <h2 class="countdown"><span id="time"><!-- Populated by JS --></span></h2>
+        <div id="video-placeholder">
+          <p class="live">{{ live }}</p>
+          <h2 class="heading" id="video-headings">
+            <span id="b1" class="fade is-active">{{ body_1 }}</span>
+            <span id="b2" class="fade">{{ body_2 }}</span>
+            <span id="b3" class="fade">{{ body_3 }}</span>
+          </h2>
+          <h2 class="countdown"><span id="time"><!-- Populated by JS --></span></h2>
+        </div> <!-- .video-placeholder -->
+        <div id="video-embed">
+          <iframe src="https://player.vimeo.com/video/325672146" frameborder="0"
+                  webkitallowfullscreen mozallowfullscreen allowfullscreen>
+          </iframe>
+        </div> <!-- .video-embed -->
       </div>
       <a href="https://www.battleforthenet.com/" class="btn" target="_blank">
         {{ cta_button }}

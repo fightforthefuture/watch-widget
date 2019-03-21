@@ -94,12 +94,19 @@ function headingRotation(el) {
   }, 5000)
 }
 
-function countdownTimer(el) {
+function countdownTimer(el, isCountdownLive, lang) {
+  const videoPlaceholder = document.getElementById('video-placeholder')
+  const videoEmbed = document.getElementById('video-embed')
+
   setInterval(function () {
     const datetimeNow = new Date()
     const datetimeCountdown = new Date('Fri Mar 29 2019 17:00:00 GMT+0000').getTime() // Time is not real
     const delta = datetimeCountdown - datetimeNow
-    if (delta > 0) {
+    if (!isCountdownLive) {
+      const weekText = lang === 'es' ? "La próxima semana" : "Next Week"
+      el.textContent = weekText
+      videoPlaceholder.style.display = 'block'
+    } else if (delta > 0) {
       const diff = {
         days: Math.floor(delta / (1000 * 60 * 60 * 24)),
         hours: Math.floor((delta % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)),
@@ -113,8 +120,11 @@ function countdownTimer(el) {
       ]
       if (diff.days !== 0) { formattedTime.unshift(diff.days) }
       el.textContent =  formattedTime.join(':')
+      videoPlaceholder.style.display = 'block'
     } else {
-      el.textContent =  '00:00:00'
+      el.textContent = '00:00:00'
+      videoPlaceholder.style.display = 'none'
+      videoEmbed.style.display = 'block'
     }
   }, 1000);
 }
@@ -158,12 +168,7 @@ function init() {
     document.body.setAttribute('data-donations', 'false')
   }
 
-  if (false) {
-    countdownTimer(document.getElementById('time'))
-  } else {
-    const weekText = language === 'es' ? "La próxima semana" : "Next Week"
-    document.getElementById('time').textContent = weekText
-  }
+  countdownTimer(document.getElementById('time'), false, language)
 
   headingRotation(document.getElementById('video-headings'))
 
