@@ -185,7 +185,23 @@ a {
   }
 
   h2.heading {
-    margin: 4rem 0 2rem;
+    position: relative;
+    margin: 3.25rem 0 2.5rem;
+    min-height: 5.5rem;
+  }
+
+  .fade {
+    display: block;
+    position: absolute;
+    top: 0;
+    height: 0;
+    opacity: 0;
+    transition: opacity 2s cubic-bezier(0,0.5,1,1);
+  }
+
+  .fade.is-active {
+    height: auto;
+    opacity: 1;
   }
 
   h2.countdown {

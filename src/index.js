@@ -80,15 +80,18 @@ function closeWindow(event) {
   postMessage('closeWindow')
 }
 
-function todayIs(y, m, d) {
-  const date = new Date()
-  const offset = 4 // EDT
-  date.setHours(date.getHours() + date.getTimezoneOffset()/60 - offset)
-  const year = date.getFullYear()
-  const month = date.getMonth() + 1
-  const day = date.getDate()
+function headingRotation(el) {
+  const numHeadings = el.children.length
 
-  return (year === y && month === m && day === d)
+  setInterval(function () {
+    let activeEl = document.querySelector('.is-active')
+    let activeId = parseInt(activeEl.id.slice(1), 10)
+    let newId = `b${numHeadings === activeId ? 1 : activeId+1}`
+    let newEl = document.getElementById(newId)
+
+    activeEl.classList.remove('is-active')
+    newEl.classList.add('is-active')
+  }, 5000)
 }
 
 function countdownTimer(el) {
@@ -156,11 +159,14 @@ function init() {
   }
 
   if (false) {
-    countdownTimer(document.querySelector('#time'))
+    countdownTimer(document.getElementById('time'))
   } else {
     const weekText = language === 'es' ? "La próxima semana" : "Next Week"
-    document.querySelector('#time').textContent = weekText
+    document.getElementById('time').textContent = weekText
   }
+
+  headingRotation(document.getElementById('video-headings'))
+
   document.querySelector('html').classList.remove('invisible')
 }
 document.addEventListener('DOMContentLoaded', init)
