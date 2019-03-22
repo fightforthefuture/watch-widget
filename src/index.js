@@ -100,7 +100,7 @@ function countdownTimer(el, isCountdownLive, lang) {
 
   setInterval(function () {
     const datetimeNow = new Date()
-    const datetimeCountdown = new Date('Fri Mar 29 2019 17:00:00 GMT+0000').getTime() // Time is not real
+    const datetimeCountdown = new Date('Mon Mar 26 2019 14:00:00 GMT+0000').getTime()
     const delta = datetimeCountdown - datetimeNow
     if (!isCountdownLive) {
       const weekText = lang === 'es' ? "La próxima semana" : "Next Week"
@@ -168,7 +168,7 @@ function init() {
     document.body.setAttribute('data-donations', 'false')
   }
 
-  countdownTimer(document.getElementById('time'), false, language)
+  countdownTimer(document.getElementById('time'), true, language)
 
   headingRotation(document.getElementById('video-headings'))
 
