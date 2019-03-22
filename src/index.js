@@ -100,7 +100,7 @@ function countdownTimer(el, isCountdownLive, lang) {
 
   setInterval(function () {
     const datetimeNow = new Date()
-    const datetimeCountdown = new Date('Fri Mar 29 2019 17:00:00 GMT+0000').getTime() // FIXME
+    const datetimeCountdown = new Date('Mon Mar 26 2019 14:00:00 GMT+0000').getTime()
     const delta = datetimeCountdown - datetimeNow
     if (!isCountdownLive) {
       const weekText = lang === 'es' ? "La próxima semana" : "Next Week"
