@@ -80,55 +80,6 @@ function closeWindow(event) {
   postMessage('closeWindow')
 }
 
-function headingRotation(el) {
-  const numHeadings = el.children.length
-
-  setInterval(function () {
-    let activeEl = document.querySelector('.is-active')
-    let activeId = parseInt(activeEl.id.slice(1), 10)
-    let newId = `b${numHeadings === activeId ? 1 : activeId+1}`
-    let newEl = document.getElementById(newId)
-
-    activeEl.classList.remove('is-active')
-    newEl.classList.add('is-active')
-  }, 5000)
-}
-
-function countdownTimer(el, isCountdownLive, lang) {
-  const videoPlaceholder = document.getElementById('video-placeholder')
-  const videoEmbed = document.getElementById('video-embed')
-
-  setInterval(function () {
-    const datetimeNow = new Date()
-    const datetimeCountdown = new Date('Mon Mar 26 2019 14:00:00 GMT+0000').getTime()
-    const delta = datetimeCountdown - datetimeNow
-    if (!isCountdownLive) {
-      const weekText = lang === 'es' ? "La próxima semana" : "Next Week"
-      el.textContent = weekText
-      videoPlaceholder.style.display = 'block'
-    } else if (delta > 0) {
-      const diff = {
-        days: Math.floor(delta / (1000 * 60 * 60 * 24)),
-        hours: Math.floor((delta % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)),
-        minutes: Math.floor((delta % (1000 * 60 * 60)) / (1000 * 60)),
-        seconds: Math.floor((delta % (1000 * 60)) / 1000)
-      }
-      const formattedTime = [
-        String(diff.hours).padStart(2, '0'),
-        String(diff.minutes).padStart(2, '0'),
-        String(diff.seconds).padStart(2, '0')
-      ]
-      if (diff.days !== 0) { formattedTime.unshift(diff.days) }
-      el.textContent =  formattedTime.join(':')
-      videoPlaceholder.style.display = 'block'
-    } else {
-      el.textContent = '00:00:00'
-      videoPlaceholder.style.display = 'none'
-      videoEmbed.style.display = 'block'
-    }
-  }, 1000);
-}
-
 function isTruthy(str) {
   return typeof(str) === 'undefined' || `${str}` === 'true' || `${str}` === '1'
 }
@@ -167,10 +118,6 @@ function init() {
   if (!isTruthy(query.donations)) {
     document.body.setAttribute('data-donations', 'false')
   }
-
-  countdownTimer(document.getElementById('time'), true, language)
-
-  headingRotation(document.getElementById('video-headings'))
 
   document.querySelector('html').classList.remove('invisible')
 }
