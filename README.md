@@ -1,6 +1,6 @@
 # "The Internet Is Watching" Widget
 
-This is the source code for Battle for the Net's June 11 day of action widget. Net neutrality ends June 11th, but the fight has just begun. [Click here to learn more.](https://www.battleforthenet.com/)
+This is the source code for Battle for the Net's Save the Internet Act subcommittee hearing livestream widget. [Click here to learn more.](https://www.battleforthenet.com/)
 
 ## How to install the widget on your site
 
