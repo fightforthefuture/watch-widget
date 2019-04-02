@@ -168,7 +168,7 @@ function init() {
     document.body.setAttribute('data-donations', 'false')
   }
 
-  const voteActive = true
+  const voteActive = false
   if (voteActive) {
     countdownTimer(document.getElementById('time'), true, language)
     headingRotation(document.getElementById('video-headings'))
