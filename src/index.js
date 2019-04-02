@@ -168,9 +168,13 @@ function init() {
     document.body.setAttribute('data-donations', 'false')
   }
 
-  countdownTimer(document.getElementById('time'), true, language)
-
-  headingRotation(document.getElementById('video-headings'))
+  const voteActive = true
+  if (voteActive) {
+    countdownTimer(document.getElementById('time'), true, language)
+    headingRotation(document.getElementById('video-headings'))
+  } else {
+    document.getElementById('post-vote').style.display = 'block'
+  }
 
   document.querySelector('html').classList.remove('invisible')
 }
