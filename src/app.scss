@@ -1,10 +1,11 @@
-$font-stack: "Helvetica Neue", Helvetica, Arial, sans-serif;
+$font-stack: "Arial Black", Arial, sans-serif;
 $white: #FFF;
 $black: #000;
 $background-color: $white;
 $text-color: #4D4D4D;
 $border-radius: 5px;
-$brand-color: #FF5627;
+$brand-color: #8528FF;
+$success-color: #02ffc6;
 
 @mixin mobile {
   @media only screen and (max-device-width: 480px) {
@@ -88,14 +89,15 @@ body {
 h1 {
   margin: 0;
   color: $brand-color;
-  font-size: 3.2rem;
-  line-height: 1.2;
+  font-size: 2.5rem;
+  font-weight: bold;
+  line-height: 1;
   text-transform: uppercase;
 }
 
 @include mobile {
   h1 {
-    font-size: 2.6rem;
+    font-size: 2rem;
   }
 }
 
@@ -116,7 +118,7 @@ p {
 }
 
 a {
-  color: $text-color;
+  color: $brand-color;
   text-decoration: underline;
 }
 
@@ -125,7 +127,7 @@ a {
   display: block;
   width: 100%;
   background-color: $brand-color;
-  color: $white;
+  color: $success-color;
   border: none;
   border-radius: $border-radius;
   font-size: 2.4rem;
@@ -136,7 +138,7 @@ a {
 
   &:hover,
   &:focus {
-    color: $white;
+    color: $success-color;
     cursor: pointer;
     transform: scale(1.02);
   }
